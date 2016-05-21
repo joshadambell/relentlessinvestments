@@ -2,6 +2,9 @@
 *.o
 *.a
 *.so
+relentlessinvestments
+.DS_Store
+bower_components
 
 # Folders
 _obj
