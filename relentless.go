@@ -3,12 +3,19 @@ package main
 import (
 	"fmt"
 	"net/http"
+
+	"golang.org/x/net/context"
+
+	"goji.io"
+	"goji.io/pat"
 )
 
 func main() {
-	http.HandleFunc("/hello", hello)
+	mux := goji.NewMux()
+	mux.HandleFuncC(pat.Get("/hello/:name"), hello)
 	http.Handle("/", http.FileServer(http.Dir("app")))
-	http.ListenAndServe(":8080", nil)
+
+	http.ListenAndServe("localhost:8000", mux)
 }
 
 type signup struct {
@@ -18,10 +25,10 @@ type signup struct {
 }
 
 type signupOptions struct {
-	Gap bool
+	Gap bool `json:"gap"`
 }
 
-func hello(w http.ResponseWriter, r *http.Request) {
+func hello(c context.Context, w http.ResponseWriter, r *http.Request) {
 	name := r.Form.Get("name")
 	fmt.Fprintf(w, "Hello, %s!", name)
 }
