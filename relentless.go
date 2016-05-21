@@ -9,18 +9,13 @@ import (
 	"strings"
 
 	"golang.org/x/net/context"
-
-	"goji.io"
-	"goji.io/pat"
 )
 
 func main() {
-	mux := goji.NewMux()
-	mux.HandleFuncC(pat.Get("/hello/:name"), hello)
-	mux.HandleFuncC(pat.Post("/signup"), signupH)
+	http.HandleFunc("/signup", signupH)
 	http.Handle("/", http.FileServer(http.Dir("app")))
 
-	http.ListenAndServe("localhost:8080", mux)
+	http.ListenAndServe("localhost:8080", nil)
 }
 
 type signup struct {
@@ -38,7 +33,7 @@ func hello(c context.Context, w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hello, %s!", name)
 }
 
-func signupH(c context.Context, w http.ResponseWriter, r *http.Request) {
+func signupH(w http.ResponseWriter, r *http.Request) {
 	var s signup
 	d := json.NewDecoder(r.Body)
 	d.Decode(&s)
