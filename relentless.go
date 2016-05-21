@@ -15,7 +15,7 @@ func main() {
 	http.HandleFunc("/signup", signupH)
 	http.Handle("/", http.FileServer(http.Dir("app")))
 
-	http.ListenAndServe("localhost:8080", nil)
+	http.ListenAndServe(":8080", nil)
 }
 
 type signup struct {
