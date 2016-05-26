@@ -74,7 +74,8 @@
 
 				<paper-header-scroll-panel main fixed id="headerPanelMain" class="flex">
 					<paper-toolbar id="mainToolbar" fixed>
-						<paper-icon-button icon="menu" paper-drawer-toggle raised hidden$="{{wideLayout}}"></paper-icon-button>
+						<paper-icon-button class="menu-button" icon="menu" paper-drawer-toggle raised hidden$="{{wideLayout}}"></paper-icon-button>
+						<iron-image sizing="contain" src="../images/logo.png" style="height:50px; width:150px" class="flex" hidden$="{{wideLayout}}"></iron-image>
 						<div class="top layout horizontal flex" hidden$="{{!wideLayout}}">
 							<a data-route="home" href="{{baseUrl}}">
 								<iron-image sizing="contain" src="../images/logo.png" style="height:50px; width:150px"></iron-image>

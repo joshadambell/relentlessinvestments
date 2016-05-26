@@ -31,8 +31,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     --secondary-text-color: #737373;
     --disabled-text-color: #9b9b9b;
     --divider-color: #dbdbdb;
-    --primary-color: white;
-    --secondary-color: darkblue;
+    --primary-color: rgb(238, 180, 59);
+    --secondary-color: rgb(104,107,104);
     --light-primary-color: var(--paper-indigo-100);
     --dark-primary-color: var(--paper-indigo-700);
     --accent-color: var(--paper-pink-a200);
@@ -51,15 +51,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     --menu-link-color: green;
 
     /* paper-toolbar */
+    --paper-toolbar-background: white;
 
     /* paper-tab */
 
     --paper-tab-ink: rgb(84, 192, 225);
-
-     --paper-tabs: {
-          color: green; /* variable defined in default-theme.html */
-          font-size: 15px;
-      }
   }
 
   /* General styles */
@@ -67,8 +63,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   /*rgb(104,107,104) gray*/
   /*rgb(0, 89, 114); Dark blue*/
   /*rgb(84, 192, 225); light blue*/
-  paper-icon-button {
-   color: rgb(238, 180, 59); /* orange */
+  paper-icon-button.menu-button {
+   color: var(--primary-color) /* orange */
   }
 
   body {

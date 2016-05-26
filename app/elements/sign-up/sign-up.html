@@ -4,69 +4,64 @@
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
 <dom-module id="sign-up">
-  <template>
-    <style include="shared-styles">
-      :host {
-        display: block;
-        position: fixed;
-        -webkit-transform-origin: left center;
-        transform-origin: left center;
-        width: 87%; 
-      }
-      paper-material {
-        padding: 30px;
-      }
-      paper-button {
-        margin: 30px 0 0 0;
-      }
+	<template>
+		<style include="shared-styles">
+			:host {
+				display: block;
+				position: fixed;
+				-webkit-transform-origin: left center;
+				transform-origin: left center;
+				width: 87%; 
+			}
+			paper-material {
+				padding: 30px;
+			}
+			paper-button {
+				margin: 30px 0 0 0;
+			}
 
-      span,
-      input {
-        @apply(--paper-font-body2);
-      }
-    </style>
+			span,
+			input {
+				@apply(--paper-font-body2);
+			}
+		</style>
 
-    <paper-material elevation="1">
-      <form is="iron-form" id="form" method="post" action="/signup">
-        <h1 class="page-title" tabindex="-1">Sign Up</h1>
-        <paper-input label="Name">{{name}}</paper-input>  
-        <paper-input label="Email">{{email}}</paper-input>
-        <paper-button raised onclick="submitForm()">Submit</paper-button>
-      </form>
-    </paper-material>
-  </template>
+		<paper-material elevation="1">
+			<form is="iron-form" id="form" method="post" action="/signup">
+				<h1 class="page-title" tabindex="-1">Sign Up</h1>
+				<paper-input id="nameInput" label="name" required></paper-input>  
+				<paper-input id="emailInput" label="email" required>
+					<iron-icon icon="mail" prefix></iron-icon>
+				</paper-input>
+				<paper-button raised on-click="submitForm">Submit</paper-button>
+			</form>
+		</paper-material>
+	</template>
 
-  <script>
-    (function() {
-      'use strict';
+	<script>
+		Polymer({
+			is: 'sign-up',
 
-      Polymer({
-        is: 'sign-up',
+			properties: {
+				name: String,
+				email: String
+			},
 
-        properties: {
-          name: {
-            type: String,
-            notify: false
-          },
-          email: {
-            type: String,
-            notify: false
-          }
-        },
-        ready: function() {
-           this.$.form.addEventListener('iron-form-presubmit', function() {
-            this.request.method = 'post';
-            this.request.form = JSON.Stringify({name: this.name, email: this.email});
-          });
-          this.$.form.addEventListener('iron-form-submit', function() {
-            this.name = ""
-            this.email = ""
-          });
-        },
-        submitForm: function() {
-          document.getElementById('form').submit();
-        }
-      });
-    })();
-  </script>
+			ready: function() {
+				 this.$.form.addEventListener('iron-form-presubmit', function() {
+					console.log(this)
+					this.request.method = 'post';
+					this.request.contentType = 'application/json'
+					this.request.body = {name: this.name, email: this.email};
+				});
+				this.$.form.addEventListener('iron-form-submit', function() {
+					this.name = ""
+					this.email = ""
+				});
+			},
+			submitForm: function(e, detail) {
+				document.getElementById('form').submit();
+			}
+		});
+	</script>
 </dom-module>
