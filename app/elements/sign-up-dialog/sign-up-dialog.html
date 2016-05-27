@@ -1,0 +1,26 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-dialog-behavior/paper-dialog-behavior.html">
+<link rel="import" href="../../bower_components/paper-dialog-behavior/paper-dialog-shared-styles.html">
+
+<dom-module id="sign-up-dialog">
+  <template>
+    <style include="paper-dialog-shared-styles">
+      :host {
+        padding: 25px;
+      };
+    </style>
+    <content></content>
+  </template>
+
+</dom-module>
+
+<script>
+(function() {
+  Polymer({
+    is: 'sign-up-dialog',
+    behaviors: [
+      Polymer.PaperDialogBehavior
+    ]
+  });
+})();
+</script>

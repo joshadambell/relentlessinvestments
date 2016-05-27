@@ -6,36 +6,18 @@
 <dom-module id="sign-up">
 	<template>
 		<style include="shared-styles">
-			:host {
-				display: block;
-				position: fixed;
-				-webkit-transform-origin: left center;
-				transform-origin: left center;
-				width: 87%; 
-			}
-			paper-material {
-				padding: 30px;
-			}
-			paper-button {
-				margin: 30px 0 0 0;
-			}
-
-			span,
-			input {
-				@apply(--paper-font-body2);
-			}
 		</style>
 
-		<paper-material elevation="1">
 			<form is="iron-form" id="form" method="post" action="/signup">
 				<h1 class="page-title" tabindex="-1">Sign Up</h1>
 				<paper-input id="nameInput" label="name" required></paper-input>  
 				<paper-input id="emailInput" label="email" required>
 					<iron-icon icon="mail" prefix></iron-icon>
 				</paper-input>
-				<paper-button raised on-click="submitForm">Submit</paper-button>
+				<div>
+					<paper-button raised on-click="submitForm">Submit</paper-button>
+				</div>
 			</form>
-		</paper-material>
 	</template>
 
 	<script>
@@ -52,11 +34,17 @@
 					console.log(this)
 					this.request.method = 'post';
 					this.request.contentType = 'application/json'
-					this.request.body = {name: this.name, email: this.email};
+					this.request.body = {
+						name: this.querySelector('#nameInput').value, 
+						email: this.querySelector('#emailInput').value,
+						options: {
+							gap: false
+						}
+					};
 				});
 				this.$.form.addEventListener('iron-form-submit', function() {
-					this.name = ""
-					this.email = ""
+					this.querySelector('#nameInput').value = ""
+					this.querySelector('#emailInput').value = ""
 				});
 			},
 			submitForm: function(e, detail) {

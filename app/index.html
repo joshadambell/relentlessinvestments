@@ -55,12 +55,12 @@
 									</paper-item>
 									</a>
 									<a data-route="opportunities" href="{{baseUrl}}opportunities">
-						<paper-item>
+								<paper-item>
 										Investment Opportunities
 									</paper-item>
 									</a>
 									<a data-route="history" href="{{baseUrl}}history">
-						<paper-item>
+									<paper-item>
 										Past Projects
 									</paper-item>
 									</a>
@@ -83,17 +83,14 @@
 							
 							<!-- On Desktop -->
 							<paper-tabs id="paper-tabs" class="self-end flex" selected="{{selectedTab}}" no-bar>
-								<paper-tab link>
+								<!-- <paper-tab link>
 									<a data-route="about" href="{{baseUrl}}about" class="link" tabindex="-1">About</a>
-								</paper-tab>
+								</paper-tab> -->
 								<paper-tab link>
 									<a data-route="opportunities" href="{{baseUrl}}opportunities" class="link" tabindex="-1">Investment Opportunities</a>
 								</paper-tab>
 								<paper-tab link>
 									<a data-route="history" href="{{baseUrl}}history" class="link" tabindex="-1">Past Projects</a>
-								</paper-tab>
-								<paper-tab link>
-									<a data-route="signup" href="{{baseUrl}}signup" class="link" tabindex="-1">Sign Up</a>
 								</paper-tab>
 							</paper-tabs>
 						</div>
@@ -103,6 +100,10 @@
 				<iron-pages attr-for-selected="data-route" selected="{{route}}">
 				<section data-route="home" tabindex="-1">
 					<h1 class="page-title" tabindex="-1">Home</h1>
+					<paper-button raised onclick="dialog.toggle()">Sign Up</paper-button>
+					<sign-up-dialog id="dialog">
+						<sign-up></sign-up>
+					</sign-up-dialog>
 				</section>
 				<section data-route="about" tabindex="-1">
 					<h1 class="page-title" tabindex="-1">About</h1>
@@ -112,10 +113,6 @@
 				</section>
 				<section data-route="history" tabindex="-1">
 					<h1 class="page-title" tabindex="-1">Past Projects</h1>
-				</section>
-				<section data-route="signup" tabindex="-1">
-					<h1 class="page-title" tabindex="-1"></h1>
-					<sign-up></sign-up>
 				</section>
 				</iron-pages>
 			</div>

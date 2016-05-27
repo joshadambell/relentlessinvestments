@@ -39,7 +39,7 @@ func signupH(w http.ResponseWriter, r *http.Request) {
 	d.Decode(&s)
 	fmt.Println(s)
 
-	notifyWithEmail("New recruit", s.Email, "joshadambell@me.com")
+	notifyWithEmail("New recruit", s.Email, "jacob@relentlessinvest.com")
 }
 
 func notifyWithEmail(subject, body string, emails ...string) {
