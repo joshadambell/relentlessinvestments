@@ -94,16 +94,13 @@
 								</paper-tab>
 							</paper-tabs>
 						</div>
+						<paper-button raised onclick="dialog.toggle()">Sign Up</paper-button>
 					</paper-toolbar>
 			
 			<div class="content layout horizontal">
 				<iron-pages attr-for-selected="data-route" selected="{{route}}">
 				<section data-route="home" tabindex="-1">
 					<h1 class="page-title" tabindex="-1">Home</h1>
-					<paper-button raised onclick="dialog.toggle()">Sign Up</paper-button>
-					<sign-up-dialog id="dialog">
-						<sign-up></sign-up>
-					</sign-up-dialog>
 				</section>
 				<section data-route="about" tabindex="-1">
 					<h1 class="page-title" tabindex="-1">About</h1>
@@ -120,6 +117,10 @@
 		</paper-drawer-panel>
 		<iron-media-query query="min-width: 600px" query-matches="{{wideLayout}}"></iron-media-query>
 
+		<sign-up-dialog id="dialog" always-on-top="true" with-backdrop="true">
+			<sign-up></sign-up>
+		</sign-up-dialog>
+					
 		</template>
 		<!-- build:js scripts/app.js -->
 		<script src="scripts/app.js"></script>

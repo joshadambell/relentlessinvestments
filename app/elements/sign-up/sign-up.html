@@ -6,6 +6,11 @@
 <dom-module id="sign-up">
 	<template>
 		<style include="shared-styles">
+			.submit-button {
+				display: flex;
+				justify-content: center;
+				padding-top: 50px;
+			}
 		</style>
 
 			<form is="iron-form" id="form" method="post" action="/signup">
@@ -14,8 +19,8 @@
 				<paper-input id="emailInput" label="email" required>
 					<iron-icon icon="mail" prefix></iron-icon>
 				</paper-input>
-				<div>
-					<paper-button raised on-click="submitForm">Submit</paper-button>
+				<div class="submit-button">
+					<paper-button raised dialog-confirm autofocus on-click="submitForm">Submit</paper-button>
 				</div>
 			</form>
 	</template>
