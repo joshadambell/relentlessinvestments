@@ -7,8 +7,6 @@ import (
 	"os"
 	"os/exec"
 	"strings"
-
-	"golang.org/x/net/context"
 )
 
 func main() {
@@ -28,18 +26,13 @@ type signupOptions struct {
 	Gap bool `json:"gap"`
 }
 
-func hello(c context.Context, w http.ResponseWriter, r *http.Request) {
-	name := r.Form.Get("name")
-	fmt.Fprintf(w, "Hello, %s!", name)
-}
-
 func signupH(w http.ResponseWriter, r *http.Request) {
 	var s signup
 	d := json.NewDecoder(r.Body)
 	d.Decode(&s)
 	fmt.Println(s)
 
-	notifyWithEmail("New recruit", s.Email, "jacob@relentlessinvest.com")
+	notifyWithEmail("New recruit", s.Name+": "+s.Email, "jacob@relentlessinvest.com")
 }
 
 func notifyWithEmail(subject, body string, emails ...string) {

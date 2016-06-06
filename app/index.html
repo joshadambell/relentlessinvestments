@@ -45,30 +45,25 @@
 		<template is="dom-bind" id="app">
 			<paper-drawer-panel force-narrow id="mainDrawerPanel">
 				<paper-header-panel drawer>
-						<a data-route="home" href="{{baseUrl}}" style=" display: flex; justify-content: center; padding: 15px;">
-								<iron-image sizing="contain" src="../images/logo.png" style="height:50px; width:150px"></iron-image>
-						</a>
+					<a data-route="home" href="{{baseUrl}}" style=" display: flex; justify-content: center; padding: 15px;">
+						<iron-image sizing="contain" src="../images/logo.png" style="height:50px; width:150px"></iron-image>
+					</a>
 					<paper-menu>
-							<a data-route="about" href="{{baseUrl}}about">
-								<paper-item>
-										About
-									</paper-item>
-									</a>
-									<a data-route="opportunities" href="{{baseUrl}}opportunities">
-								<paper-item>
-										Investment Opportunities
-									</paper-item>
-									</a>
-									<a data-route="history" href="{{baseUrl}}history">
-									<paper-item>
-										Past Projects
-									</paper-item>
-									</a>
-									<a data-route="signup" href="{{baseUrl}}signup">
-									<paper-item>
-										Sign Up
-									</paper-item>
-									</a>
+						<a data-route="about" href="{{baseUrl}}about">
+							<paper-item>
+								About
+							</paper-item>
+						</a>
+						<a data-route="opportunities" href="{{baseUrl}}opportunities">
+							<paper-item>
+								Investment Opportunities
+							</paper-item>
+						</a>
+						<a data-route="history" href="{{baseUrl}}history">
+							<paper-item>
+								Past Projects
+							</paper-item>
+						</a>
 					</paper-menu>
 				</paper-header-panel>
 
@@ -80,12 +75,10 @@
 							<a data-route="home" href="{{baseUrl}}">
 								<iron-image sizing="contain" src="../images/logo.png" style="height:50px; width:150px"></iron-image>
 							</a>
-							
-							<!-- On Desktop -->
 							<paper-tabs id="paper-tabs" class="self-end flex" selected="{{selectedTab}}" no-bar>
-								<!-- <paper-tab link>
+								<paper-tab link>
 									<a data-route="about" href="{{baseUrl}}about" class="link" tabindex="-1">About</a>
-								</paper-tab> -->
+								</paper-tab>
 								<paper-tab link>
 									<a data-route="opportunities" href="{{baseUrl}}opportunities" class="link" tabindex="-1">Investment Opportunities</a>
 								</paper-tab>
@@ -94,32 +87,33 @@
 								</paper-tab>
 							</paper-tabs>
 						</div>
-						<paper-button raised onclick="dialog.toggle()">Sign Up</paper-button>
+						<paper-button raised class="subscribe-button"onclick="dialog.toggle()">Subscribe</paper-button>
 					</paper-toolbar>
-			
-			<div class="content layout horizontal">
-				<iron-pages attr-for-selected="data-route" selected="{{route}}">
-				<section data-route="home" tabindex="-1">
-					<h1 class="page-title" tabindex="-1">Home</h1>
-				</section>
-				<section data-route="about" tabindex="-1">
-					<h1 class="page-title" tabindex="-1">About</h1>
-				</section>
-				<section data-route="opportunities" tabindex="-1">
-					<h1 class="page-title" tabindex="-1">Investment Opportunities</h1>
-				</section>
-				<section data-route="history" tabindex="-1">
-					<h1 class="page-title" tabindex="-1">Past Projects</h1>
-				</section>
-				</iron-pages>
-			</div>
-		</paper-header-scroll-panel>
-		</paper-drawer-panel>
-		<iron-media-query query="min-width: 600px" query-matches="{{wideLayout}}"></iron-media-query>
+					<div class="content layout horizontal">
+						<iron-pages attr-for-selected="data-route" selected="{{route}}">
+						<section data-route="home" tabindex="-1">
+							<h1 class="page-title" tabindex="-1">Welcome!</h1>
+							Learn more about our company 
+							<a href="{{baseUrl}}about"><paper-button raised>Here</paper-button></a>
+						</section>
+						<section data-route="about" tabindex="-1">
+							<h1 class="page-title" tabindex="-1">About</h1>
+						</section>
+						<section data-route="opportunities" tabindex="-1">
+							<h1 class="page-title" tabindex="-1">Investment Opportunities</h1>
+						</section>
+						<section data-route="history" tabindex="-1">
+							<h1 class="page-title" tabindex="-1">Past Projects</h1>
+						</section>
+						</iron-pages>
+					</div>
+				</paper-header-scroll-panel>
+			</paper-drawer-panel>
+			<iron-media-query query="min-width: 600px" query-matches="{{wideLayout}}"></iron-media-query>
 
-		<sign-up-dialog id="dialog" always-on-top="true" with-backdrop="true">
-			<sign-up></sign-up>
-		</sign-up-dialog>
+			<sign-up-dialog id="dialog" always-on-top="true" with-backdrop="true">
+				<sign-up></sign-up>
+			</sign-up-dialog>
 					
 		</template>
 		<!-- build:js scripts/app.js -->

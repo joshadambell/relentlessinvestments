@@ -6,21 +6,28 @@
 <dom-module id="sign-up">
 	<template>
 		<style include="shared-styles">
+			:host {
+				display: block;
+				margin-top: 40px!important;
+			};
 			.submit-button {
 				display: flex;
 				justify-content: center;
-				padding-top: 50px;
+				padding-top: 25px;
+			}
+			paper-input {
+				width: 75%;
+				margin-left: 10%;
 			}
 		</style>
 
+		<!-- <h1 class="page-title" tabindex="-1">Subscribe</h1> -->
+			<div class="flex">Subscribe below for notifications about new investment opportunities includin gap funding and wholesale deals</div>
 			<form is="iron-form" id="form" method="post" action="/signup">
-				<h1 class="page-title" tabindex="-1">Sign Up</h1>
 				<paper-input id="nameInput" label="name" required></paper-input>  
-				<paper-input id="emailInput" label="email" required>
-					<iron-icon icon="mail" prefix></iron-icon>
-				</paper-input>
+				<paper-input id="emailInput" label="email" required></paper-input>
 				<div class="submit-button">
-					<paper-button raised dialog-confirm autofocus on-click="submitForm">Submit</paper-button>
+					<paper-button raised dialog-confirm autofocus on-click="submitForm">Subscribe</paper-button>
 				</div>
 			</form>
 	</template>

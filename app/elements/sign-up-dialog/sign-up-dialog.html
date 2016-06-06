@@ -6,10 +6,18 @@
   <template>
     <style include="paper-dialog-shared-styles">
       :host {
-        padding: 25px;
-        min-width: 75%;
+        max-width: 550px
       };
+      .close {
+        float: right;
+        cursor: pointer;
+        margin-top: 0px;
+        padding: 10px;
+      }
     </style>
+    <div class="close">
+      <iron-icon icon="close" on-click="remove"></iron-icon>
+    </div>
     <content></content>
   </template>
 
@@ -21,7 +29,10 @@
     is: 'sign-up-dialog',
     behaviors: [
       Polymer.PaperDialogBehavior
-    ]
+    ],
+    remove: function() {
+      this.close()
+    }
   });
 })();
 </script>
