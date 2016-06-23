@@ -1,7 +1,9 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-styles/typography.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../styles/app-theme.html">
 
 <dom-module id="sign-up">
 	<template>
@@ -15,18 +17,19 @@
 				justify-content: center;
 				padding-top: 25px;
 			}
-			paper-input {
+			.input {
 				width: 75%;
 				margin-left: 10%;
 			}
 		</style>
 
 		<!-- <h1 class="page-title" tabindex="-1">Subscribe</h1> -->
-			<div class="flex">Subscribe below for notifications about new investment opportunities includin gap funding and wholesale deals</div>
+			<div class="flex">Subscribe below for notifications about new investment opportunities including gap funding and wholesale deals</div>
 			<form is="iron-form" id="form" method="post" action="/signup">
-				<paper-input id="nameInput" label="name" required></paper-input>  
-				<paper-input id="emailInput" label="email" required></paper-input>
-				<div class="submit-button">
+				<paper-input id="nameInput" label="name" class="input" required></paper-input>  
+				<paper-input id="emailInput" label="email" class="input" required></paper-input>
+				<!-- <paper-textarea id="notesInput" label="notes" class="input"></paper-textarea> -->
+				<div class="submit-button subscribe-button">
 					<paper-button raised dialog-confirm autofocus on-click="submitForm">Subscribe</paper-button>
 				</div>
 			</form>
@@ -49,6 +52,7 @@
 					this.request.body = {
 						name: this.querySelector('#nameInput').value, 
 						email: this.querySelector('#emailInput').value,
+						// notes: this.querySelector('#notesInput').value,
 						options: {
 							gap: false
 						}
@@ -57,6 +61,7 @@
 				this.$.form.addEventListener('iron-form-submit', function() {
 					this.querySelector('#nameInput').value = ""
 					this.querySelector('#emailInput').value = ""
+					// this.querySelector('#notesInput').value = ""
 				});
 			},
 			submitForm: function(e, detail) {
