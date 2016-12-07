@@ -28,7 +28,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
     function setFocus(selected){
-      document.querySelector('section[data-route="' + selected + '"] .page-title').focus();
+      // document.querySelector('section[data-route="' + selected + '"] .page-title').focus();
     }
 
     // Routes
@@ -39,42 +39,54 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     page('/', function() {
       app.route = 'home';
       app.selectedTab = "-1"
-      document.querySelector('#mainDrawerPanel').closeDrawer()
+      app.currentPageTitle = "Current Projects"
+      // document.querySelector('#mainDrawerPanel').closeDrawer()
       setFocus(app.route);
     });
 
     page(app.baseUrl, function() {
       app.route = 'home';
       app.selectedTab = "-1"
-      document.querySelector('#mainDrawerPanel').closeDrawer()
+       app.currentPageTitle = "Current Projects"
+      // document.querySelector('#mainDrawerPanel').closeDrawer()
+      setFocus(app.route);
+    });
+
+    page('/current', function() {
+      app.route = 'current';
+      app.selectedTab = "3"
+      // document.querySelector('#mainDrawerPanel').closeDrawer()
       setFocus(app.route);
     });
 
     page('/history', function() {
       app.route = 'history';
       app.selectedTab = "2"
-      document.querySelector('#mainDrawerPanel').closeDrawer()
+      app.currentPageTitle = "Past Projects"
+      // document.querySelector('#mainDrawerPanel').closeDrawer()
       setFocus(app.route);
     });
 
     page('/opportunities', function(data) {
       app.route = 'opportunities';
       app.selectedTab = "1"
-      document.querySelector('#mainDrawerPanel').closeDrawer()
+      app.currentPageTitle = "Investment Opportunities"
+      // document.querySelector('#mainDrawerPanel').closeDrawer()
       setFocus(app.route);
     });
 
     page('/about', function() {
       app.route = 'about';
       app.selectedTab = "0"
-      document.querySelector('#mainDrawerPanel').closeDrawer()
+       app.currentPageTitle = "About"
+      // document.querySelector('#mainDrawerPanel').closeDrawer()
       setFocus(app.route);
     });
 
     page('/signup', function() {
       app.route = 'signup';
       app.selectedTab = "3"
-      document.querySelector('#mainDrawerPanel').closeDrawer()
+      // document.querySelector('#mainDrawerPanel').closeDrawer()
       setFocus(app.route);
     });
 

@@ -1,0 +1,85 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../styles/app-theme.html">
+
+<dom-module id="photo-tile">
+    <template>
+        <style include="shared-styles">
+            :host {
+                display: block;
+                cursor: pointer;
+            }
+            
+            .photoContent {
+                @apply(--layout);
+                background-color: #ddd;
+                position: relative;
+                width: 1000px;
+                height: 500px;
+                margin: 20px;
+            }
+            
+            /*.photoContent:hover .detail {
+                opacity: 1;
+            }
+            */
+            .photoContent > iron-image {
+                @apply(--layout-flex);
+            }
+            
+            .photoContent > .detail {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+                color: white;
+                font-size: 20px;
+                font-weight: 100;
+                padding: 20px;
+                /*opacity: 0;*/
+                transition: opacity 0.1s;
+            }
+            
+            /*@media (max-width: 800px) {
+                .photoContainer {
+                    width: calc(50% - 16px);
+                }
+                .photoContent {
+                    width: auto;
+                }
+            }
+            
+            @media (max-width: 400px) {
+                iron-list {
+                    margin-top: 72px;
+                }
+                .photoContainer {
+                    width: 100%;
+                }
+                .photoContent > .detail {
+                    opacity: 1;
+                }
+            }*/
+        </style>
+
+        <div class="photoContent" tabindex$="[[tabIndex]]">
+            <iron-image sizing="cover" src="[[photo.img]]"></iron-image>
+            <div class="detail">[[photo.title]]</div>
+        </div>
+
+    </template>
+    <script>
+        Polymer({
+            is: 'photo-tile',
+
+            properties: {
+                photo: {
+                    type: Object,
+                    Value: null
+                }
+            }
+        });
+    </script>
+</dom-module>

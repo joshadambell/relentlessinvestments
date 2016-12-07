@@ -10,121 +10,137 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-styles/typography.html">
-<link rel="import" href="../bower_components/paper-styles/color.html">
+
 
 <style is="custom-style">
-
-  /*
-   Polymer includes a shim for CSS Custom Properties that we can use for application theming.
-   Below, you'll find the default palette for the Polymer Starter Kit layout. Feel free to play
-   with changing the colors used or generate your own palette of colours at MaterialPalette.com.
-
-   See https://www.polymer-project.org/1.0/docs/devguide/styling.html#xscope-styling-details
-   for further information on custom CSS properties.
-   */
-
-  /* Application theme */
-
   :root {
-    --primary-text-color: rgb(104,107,104);
+    --primary-text-color: rgb(104, 107, 104);
     --primary-background-color: white;
     --secondary-text-color: #737373;
     --disabled-text-color: #9b9b9b;
     --divider-color: #dbdbdb;
     --primary-color: rgb(238, 180, 59);
-    --secondary-color: rgb(104,107,104);
+    --secondary-color: rgb(104, 107, 104);
     --light-primary-color: var(--paper-indigo-100);
     --dark-primary-color: var(--paper-indigo-700);
-    --accent-color: rgb(0, 89, 114);;
+    --accent-color: rgb(0, 89, 114);
+    ;
     --light-accent-color: var(--paper-pink-a100);
     --dark-accent-color: var(--paper-pink-a400);
-
     /* Components 
 
     /* paper-drawer-panel */
     --drawer-menu-color: #ffffff;
     --drawer-border-color: 1px solid #ccc;
-    --drawer-toolbar-border-color: 1px solid rgba(0, 0, 0, 0.22);
-
+    /*--drawer-toolbar-border-color: 1px solid rgba(0, 0, 0, 0.22);*/
     /* paper-menu */
     --paper-menu-background-color: #fff;
     --menu-link-color: green;
-
     /* paper-toolbar */
-    --paper-toolbar-background: var(--primary-background-color);
-
+    /*--paper-toolbar-background: var(--primary-background-color);*/
     /* paper-tab */
     --paper-tab-ink: rgb(84, 192, 225);
-
     /* paper-input */
   }
-
   /* General styles */
-
   /*rgb(104,107,104) gray*/
   /*rgb(0, 89, 114); Dark blue*/
   /*rgb(84, 192, 225); light blue*/
+  
   paper-icon-button.menu-button {
-   color: var(--primary-color) /* orange */
+    color: var(--primary-color)/* orange */
   }
-
+  
   paper-button.subscribe-button {
     background: var(--accent-color);
   }
-
-  body {
-    @apply(--layout-fullbleed);
-    @apply(--layout-vertical);
+  
+  paper-scroll-header-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--paper-grey-200, #eee);
+    ;
   }
+  
+  paper-toolbar {
+    background: transparent;
+  }
+/*  
+  paper-toolbar .title {
+    margin: 0 8px;
+  }*/
 
-  [hidden] {
+  .content {
+    padding-bottom: 50px;
+  }
+  
+  paper-scroll-header-panel .content {
+    padding-bottom: 50px;
+  }
+  
+  paper-icon-button {
+    --paper-icon-button-ink-color: white;
+  }
+  
+  .spacer {
+    @apply(--layout-flex);
+  }
+  
+  /*[hidden] {
     display: none !important;
   }
-
+  
   .space {
     @apply(--layout-flex);
   }
-
-  .self-end {
+  
+  .self-end {*/
     /* This mixin (from iron-flex-layout) aligns the tabs to the
        bottom of the toolbar. */
-    @apply(--layout-self-end);
-  }
-
-  paper-header-panel {
+  /*@apply(--layout-self-end);
+  }*/
+  /*paper-header-panel {
     height: 100%;
-  }
-
-  paper-toolbar {
-   box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.4);
-  }
-
+  }*/
+  /*paper-toolbar {
+    box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.4);
+  }*/
+  /*  
   #mainToolbar.tall .app-name {
-     /*background: url("../images/logo.png");*/
-    /* Required for main area's paper-scroll-header-panel custom condensing transformation */
-    -webkit-transform-origin: left center;
-    transform-origin: left center;
-  }
-
-  #mainToolbar .middle-container,
+    /*background: url("../images/logo.png");*/
+  /* Required for main area's paper-scroll-header-panel custom condensing transformation */
+  /*-webkit-transform-origin: left center;*/
+  /*transform-origin: left center;*/
+  /*}*/
+  /*#mainToolbar .middle-container,
   #mainToolbar .bottom-container {
     @apply(--layout-horizontal);
     @apply(--layout-center);
-  }
-
+  }*/
   /* Height of the scroll area */
+  /*  
   .content {
     height: 900px;
   }
-
+  
   section[data-route="home"] paper-material {
     @apply(--paper-font-body2);
   }
-
+  
   section[data-route="home"] paper-material .subhead {
     @apply(--paper-font-subhead);
   }
+  */
 
+  .page-title {
+    font-size: 54px;
+    color: white;
+    font-family: 'Ubuntu', sans-serif !important;
+  }
+  
   paper-material {
     border-radius: 2px;
     height: 100%;
@@ -133,102 +149,103 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     margin: 16px auto;
     background: white;
   }
-
+  
   paper-tab a {
     display: flex;
     justify-content: center;
     align-items: center;
     outline: none;
+    font-family: 'Ubuntu', sans-serif;
+    text-transform: uppercase;
+    font-size: 16px;
   }
-
+  
   a {
     color: black;
     outline: none;
     text-decoration: none;
   }
 
+  .coming-soon {
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    font-size: 45px;
+  }
+  
   .mainLogo {
     height: 50px;
   }
-
-  section[tabindex="-1"]:focus { outline: none; }
-
+  /*section[tabindex="-1"]:focus {
+    outline: none;
+  }*/
   /* Breakpoints */
-
   /* Small */
-  @media (max-width: 600px) {
-
+  /*@media (max-width: 600px) {
     #drawer .paper-toolbar {
       margin-left: 16px;
     }
-
     #mainToolbar.tall .app-name {
       font-size: 24px;
       font-weight: 400;
     }
-
     paper-material {
       --menu-container-display: none;
       width: calc(97.33% - 32px);
       padding-left: 16px;
       padding-right: 16px;
     }
-
     iron-pages {
       padding: 0px 20px;
     }
-  }
-
+  }*/
   /* Tablet+ */
-  @media (min-width: 601px) {
-
+  /*@media (min-width: 601px) {
     #drawer.paper-drawer-panel > [drawer] {
       border-right: 1px solid rgba(0, 0, 0, 0.14);
     }
-
     iron-pages {
-      padding: 0px 62px;
-    }
-
-    paper-material {
-      width: calc(98% - 46px);
-      margin-bottom: 32px;
-      padding-left: 30px;
-      padding-right: 30px;
-    }
-
+      /*padding: 0px 62px;*/
+  /*width: 100%;
+    }*/
+  
+  paper-material {
+    width: calc(98% - 46px);
+    margin-bottom: 32px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
-
   /* mobile-small */
-  @media all and (min-width: 0) and (max-width: 360px) and (orientation: portrait) { }
+  /*@media all and (min-width: 0) and (max-width: 360px) and (orientation: portrait) {}*/
   /* mobile-large */
-  @media all and (min-width: 361px) and (orientation: portrait) { }
+  /*@media all and (min-width: 361px) and (orientation: portrait) {}*/
   /* mobile-small-landscape */
-  @media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape) { }
+  /*@media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape) {}*/
   /* mobile-large-landscape */
-  @media all and (min-width: 481px) and (orientation: landscape) { }
+  /*@media all and (min-width: 481px) and (orientation: landscape) {}*/
   /* tablet-small-landscape */
-  @media all and (min-width: 600px) and (max-width: 960px) and (orientation: landscape) { }
+  /*@media all and (min-width: 600px) and (max-width: 960px) and (orientation: landscape) {}*/
   /* tablet-large-landscape */
-  @media all and (min-width: 961px) and (orientation: landscape) { }
+  /*@media all and (min-width: 961px) and (orientation: landscape) {}*/
   /* tablet-small */
-  @media all and (min-width: 600px) and (orientation: portrait) { }
+  /*@media all and (min-width: 600px) and (orientation: portrait) {}*/
   /* tablet-large */
-  @media all and (min-width: 601px) and (max-width: 840px) and (orientation : portrait) { }
+  /*@media all and (min-width: 601px) and (max-width: 840px) and (orientation: portrait) {}*/
   /* desktop-x-small-landscape */
-  @media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape) { }
+  /*@media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape) {}*/
   /* desktop-x-small */
-  @media all and (min-width: 0) and (max-width: 480px) and (max-aspect-ratio: 4/3) { }
+  /*@media all and (min-width: 0) and (max-width: 480px) and (max-aspect-ratio: 4/3) {}*/
   /* desktop-small-landscape */
-  @media all and (min-width: 481px) and (max-width: 840px) and (orientation: landscape) { }
+  /*@media all and (min-width: 481px) and (max-width: 840px) and (orientation: landscape) {}*/
   /* desktop-small */
-  @media all and (min-width: 481px) and (max-width: 840px) and (max-aspect-ratio: 4/3) { }
+  /*@media all and (min-width: 481px) and (max-width: 840px) and (max-aspect-ratio: 4/3) {}*/
   /* desktop-medium-landscape */
-  @media all and (min-width: 841px) and (max-width: 1280px) and (orientation: landscape) { }
+  /*@media all and (min-width: 841px) and (max-width: 1280px) and (orientation: landscape) {}*/
   /* desktop-medium */
-  @media all and (min-width: 841px) and (max-width: 1280px) and (max-aspect-ratio: 4/3) { }
+  /*@media all and (min-width: 841px) and (max-width: 1280px) and (max-aspect-ratio: 4/3) {}*/
   /* desktop-large */
-  @media all and (min-width: 1281px) and (max-width: 1600px) { }
+  /*@media all and (min-width: 1281px) and (max-width: 1600px) {}*/
   /* desktop-xlarge */
-  @media all and (min-width: 1601px) and (max-width: 1920px) { }
+  /*@media all and (min-width: 1601px) and (max-width: 1920px) {}*/
 </style>

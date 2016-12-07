@@ -1,106 +1,186 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="generator" content="Relentless Investments">
-		<title>Relentless Investments</title>
-		<!-- Place favicon.ico in the `app/` directory -->
-		<!-- Chrome for Android theme color -->
-		<meta name="theme-color" content="#2E3AA1">
-		<!-- Web Application Manifest -->
-		<link rel="manifest" href="manifest.json">
-		<!-- Tile color for Win8 -->
-		<meta name="msapplication-TileColor" content="#3372DF">
-		<!-- Add to homescreen for Chrome on Android -->
-		<meta name="mobile-web-app-capable" content="yes">
-		<meta name="application-name" content="PSK">
-		<link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
-		<!-- Add to homescreen for Safari on iOS -->
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<meta name="apple-mobile-web-app-title" content="Polymer Starter Kit">
-		<link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
-		<!-- Tile icon for Win8 (144x144) -->
-		<meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-		<!-- build:css styles/main.css -->
-		<link rel="stylesheet" href="styles/main.css">
-		<!-- endbuild-->
-		<link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout-classes.html">
-		<!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
-		<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-		<!-- endbuild -->
-		<!-- Because this project uses vulcanize this should be your only html import
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="generator" content="Relentless Investments">
+	<title>Relentless Investments</title>
+	<!-- Place favicon.ico in the `app/` directory -->
+	<!-- Chrome for Android theme color -->
+	<meta name="theme-color" content="#2E3AA1">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+	<!-- Web Application Manifest -->
+	<link rel="manifest" href="manifest.json">
+	<!-- Tile color for Win8 -->
+	<meta name="msapplication-TileColor" content="#3372DF">
+	<!-- Add to homescreen for Chrome on Android -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="application-name" content="PSK">
+	<link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+	<!-- Add to homescreen for Safari on iOS -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-title" content="Polymer Starter Kit">
+	<link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+	<!-- Tile icon for Win8 (144x144) -->
+	<meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+	<!-- build:css styles/main.css -->
+	<link rel="stylesheet" href="styles/main.css">
+	<!-- endbuild-->
+	<link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+	<!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
+	<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+	<!-- endbuild -->
+	<!-- Because this project uses vulcanize this should be your only html import
 		in this file. All other imports should go in elements.html -->
-		<link rel="import" href="elements/elements.html">
-		<!-- For shared styles, shared-styles.html import in elements.html -->
-		<style is="custom-style" include="shared-styles"></style>
-		<style is="custom-style" include="iron-flex"></style>
-	</head>
-	<body class="fullbleed layout vertical" unresolved>
-		<!-- build:remove -->
-		<span id="browser-sync-binding"></span>
-		<!-- endbuild -->
-		<template is="dom-bind" id="app">
-			<paper-drawer-panel force-narrow id="mainDrawerPanel">
-				<paper-header-panel drawer>
-					<a data-route="home" href="{{baseUrl}}" style=" display: flex; justify-content: center; padding: 15px;">
+	<link rel="import" href="elements/elements.html">
+	<!-- For shared styles, shared-styles.html import in elements.html -->
+	<style is="custom-style" include="shared-styles"></style>
+	<style is="custom-style" include="iron-flex"></style>
+</head>
+
+<body unresolved>
+	<!-- build:remove -->
+	<!--<span id="browser-sync-binding"></span>-->
+	<!-- endbuild -->
+	<template is="dom-bind" id="app">
+		<paper-scroll-header-panel fixed>
+
+			<paper-toolbar>
+
+				<!--<paper-icon-button class="menu-button" icon="menu" paper-drawer-toggle raised hidden$="{{wideLayout}}"></paper-icon-button>-->
+				<!--<iron-image sizing="contain" src="../images/logo.png" style="height:35px; width:150px" class="flex" hidden$="{{wideLayout}}"></iron-image>-->
+
+				<div class="top layout horizontal flex" hidden$="{{!wideLayout}}">
+					<a data-route="home" href="{{baseUrl}}">
 						<iron-image sizing="contain" src="../images/logo.png" style="height:50px; width:150px"></iron-image>
 					</a>
-					<paper-menu>
-						<a data-route="about" href="{{baseUrl}}about">
-							<paper-item>
-								About
-							</paper-item>
-						</a>
-						<a data-route="opportunities" href="{{baseUrl}}opportunities">
-							<paper-item>
-								Investment Opportunities
-							</paper-item>
-						</a>
-						<a data-route="history" href="{{baseUrl}}history">
-							<paper-item>
-								Past Projects
-							</paper-item>
-						</a>
-					</paper-menu>
-				</paper-header-panel>
+					<paper-tabs id="paper-tabs" class="self-end flex" selected="{{selectedTab}}" no-bar>
+						<paper-tab link>
+							<a data-route="opportunities" href="{{baseUrl}}opportunities" class="link" tabindex="-1">Investment Opportunities</a>
+						</paper-tab>
+						<paper-tab link>
+							<a data-route="history" href="{{baseUrl}}history" class="link" tabindex="-1">Past Projects</a>
+						</paper-tab>
+						<paper-tab link>
+							<a data-route="about" href="{{baseUrl}}about" class="link" tabindex="-1">About</a>
+						</paper-tab>
+					</paper-tabs>
+				</div>
+				<paper-button raised class="subscribe-button" onclick="dialog.toggle()">Subscribe</paper-button>
 
-				<paper-header-scroll-panel main fixed id="headerPanelMain" class="flex">
-					<paper-toolbar id="mainToolbar" fixed>
-						<paper-icon-button class="menu-button" icon="menu" paper-drawer-toggle raised hidden$="{{wideLayout}}"></paper-icon-button>
-						<iron-image sizing="contain" src="../images/logo.png" style="height:35px; width:150px" class="flex" hidden$="{{wideLayout}}"></iron-image>
-						<div class="top layout horizontal flex" hidden$="{{!wideLayout}}">
-							<a data-route="home" href="{{baseUrl}}">
-								<iron-image sizing="contain" src="../images/logo.png" style="height:50px; width:150px"></iron-image>
-							</a>
-							<paper-tabs id="paper-tabs" class="self-end flex" selected="{{selectedTab}}" no-bar>
-								<paper-tab link>
-									<a data-route="about" href="{{baseUrl}}about" class="link" tabindex="-1">About</a>
-								</paper-tab>
-								<paper-tab link>
-									<a data-route="opportunities" href="{{baseUrl}}opportunities" class="link" tabindex="-1">Investment Opportunities</a>
-								</paper-tab>
-								<paper-tab link>
-									<a data-route="history" href="{{baseUrl}}history" class="link" tabindex="-1">Past Projects</a>
-								</paper-tab>
-							</paper-tabs>
+			</paper-toolbar>
+
+			<div class="content">
+				<div style="background: url('images/grey-front-bg.jpg'); height: 300px; display: flex;justify-content: center;align-items: center; margin-bottom: 50px;">
+					<h1 class="page-title">{{currentPageTitle}}</h1>
+				</div>
+				<iron-pages attr-for-selected="data-route" selected="{{route}}">
+					<section data-route="home" tabindex="-1">
+						<iron-list items="[[photos]]" as="photo" scroll-target="document" grid>
+							<template>
+								<a data-route="history" href="[[photo.src]]" class="link" tabindex="-1">
+									<photo-tile photo="[[photo]]"></photo-tile>
+								</a>
+							</template>
+						</iron-list>
+					</section>
+					<section data-route="about" tabindex="-1">
+						<div>
+							<div style="margin: 20px;" class="flex">
+								Relentless Investments buys, rehabs, and sells homes in need of a face lift and turns them into a buyer's dream home. We
+								provide investment opportunities for those looking to outdo their returns in the stock market.
+							</div>
 						</div>
-						<paper-button raised class="subscribe-button"onclick="dialog.toggle()">Subscribe</paper-button>
-					</paper-toolbar>
-					<div class="content layout horizontal">
-						<iron-pages attr-for-selected="data-route" selected="{{route}}">
+						<!--<div style="display:flex; justify-content:center" hidden$="{{wideLayout}}">
+							<iron-image sizing="contain" src="../images/business_card.png" style="height:300px; width:300px"></iron-image>
+						</div>-->
+						<div style="display:flex; justify-content:center" hidden$="{{!wideLayout}}">
+							<iron-image sizing="contain" src="../images/business_card.png" style="height:600px; width:600px"></iron-image>
+						</div>
+					</section>
+					<section data-route="opportunities" tabindex="-1">
+						<div class="coming-soon">coming soon</div>
+					</section>
+					<section data-route="history" tabindex="-1">
+						<div class="coming-soon">coming soon</div>
+					</section>
+				</iron-pages>
+			</div>
+
+		</paper-scroll-header-panel>
+
+
+
+		<!--<paper-drawer-panel force-narrow id="mainDrawerPanel">
+			<paper-header-panel drawer>
+				<a data-route="home" href="{{baseUrl}}" style=" display: flex; justify-content: center; padding: 15px;">
+					<iron-image sizing="contain" src="../images/logo.png" style="height:50px; width:150px"></iron-image>
+				</a>
+				<paper-menu>
+					<a data-route="about" href="{{baseUrl}}about">
+						<paper-item>
+							About
+						</paper-item>
+					</a>
+					<a data-route="opportunities" href="{{baseUrl}}opportunities">
+						<paper-item>
+							Investment Opportunities
+						</paper-item>
+					</a>
+					<a data-route="history" href="{{baseUrl}}history">
+						<paper-item>
+							Past Projects
+						</paper-item>
+					</a>
+				</paper-menu>
+			</paper-header-panel>-->
+
+		<!--<paper-header-scroll-panel fixed id="headerPanelMain">
+				<paper-toolbar id="mainToolbar">
+					<paper-icon-button class="menu-button" icon="menu" paper-drawer-toggle raised hidden$="{{wideLayout}}"></paper-icon-button>
+					<iron-image sizing="contain" src="../images/logo.png" style="height:35px; width:150px" class="flex" hidden$="{{wideLayout}}"></iron-image>
+					<div class="top layout horizontal flex" hidden$="{{!wideLayout}}">
+						<a data-route="home" href="{{baseUrl}}">
+							<iron-image sizing="contain" src="../images/logo.png" style="height:50px; width:150px"></iron-image>
+						</a>
+						<paper-tabs id="paper-tabs" class="self-end flex" selected="{{selectedTab}}" no-bar>
+							<paper-tab link>
+								<a data-route="opportunities" href="{{baseUrl}}opportunities" class="link" tabindex="-1">Investment Opportunities</a>
+							</paper-tab>
+							<paper-tab link>
+								<a data-route="history" href="{{baseUrl}}history" class="link" tabindex="-1">Past Projects</a>
+							</paper-tab>
+							<paper-tab link>
+								<a data-route="about" href="{{baseUrl}}about" class="link" tabindex="-1">About</a>
+							</paper-tab>
+						</paper-tabs>
+					</div>
+					<paper-button raised class="subscribe-button" onclick="dialog.toggle()">Subscribe</paper-button>
+				</paper-toolbar>
+				<div class="content layout horizontal">
+					<iron-pages attr-for-selected="data-route" selected="{{route}}">
 						<section data-route="home" tabindex="-1">
-							<h1 class="page-title" tabindex="-1">Welcome!</h1>
-							Learn more about our company 
-							<a href="{{baseUrl}}about"><paper-button raised>Here</paper-button></a>
+							<div style="margin:30px">
+								<iron-image sizing="contain" src="../images/logo.png" style="width: 100%; height: 200px;"></iron-image>
+							</div>
+							<h1 style="margin-left:20px" tabindex="-1">Current Projects</h1>
+							<iron-list items="[[photos]]" as="photo" scroll-target="document" grid>
+								<template>
+									<a data-route="history" href="{{baseUrl}}history" class="link" tabindex="-1">
+										<photo-tile photo="[[photo]]"></photo-tile>
+									</a>
+								</template>
+							</iron-list>
 						</section>
 						<section data-route="about" tabindex="-1">
 							<div>
 								<h1 class="page-title" tabindex="-1">About</h1>
 								<div class="flex">
-								Relentless Investments buys, rehabs, and sells homes in need of a face lift and turns them into a buyer's dream home. We provide investment opportunities for those looking to outdo their returns in the stock market.
+									Relentless Investments buys, rehabs, and sells homes in need of a face lift and turns them into a buyer's dream home. We
+									provide investment opportunities for those looking to outdo their returns in the stock market.
 								</div>
 							</div>
 							<div style="display:flex; justify-content:center" hidden$="{{wideLayout}}">
@@ -116,19 +196,20 @@
 						<section data-route="history" tabindex="-1">
 							<h1 class="page-title" tabindex="-1">Past Projects</h1>
 						</section>
-						</iron-pages>
-					</div>
-				</paper-header-scroll-panel>
-			</paper-drawer-panel>
-			<iron-media-query query="min-width: 600px" query-matches="{{wideLayout}}"></iron-media-query>
+					</iron-pages>
+				</div>
+			</paper-header-scroll-panel>
+		<!--</paper-drawer-panel>-->
+		<!--<iron-media-query query="min-width: 600px" query-matches="{{wideLayout}}"></iron-media-query>-->
 
-			<sign-up-dialog id="dialog" always-on-top="true" with-backdrop="true">
-				<sign-up></sign-up>
-			</sign-up-dialog>
-					
-		</template>
-		<!-- build:js scripts/app.js -->
-		<script src="scripts/app.js"></script>
-		<!-- endbuild-->
-	</body>
+		<sign-up-dialog id="dialog" always-on-top="true" with-backdrop="true">
+			<sign-up></sign-up>
+		</sign-up-dialog>-->
+
+	</template>
+	<!-- build:js scripts/app.js -->
+	<script src="scripts/app.js"></script>
+	<!-- endbuild-->
+</body>
+
 </html>

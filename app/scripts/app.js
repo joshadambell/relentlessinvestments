@@ -40,4 +40,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     app.$.headerPanelMain.scrollTop(true);
   };
 
+  app.photos = [
+    {
+      title: "2358 Woodbine Ave",
+      img: "../images/homes/woodbine/front.jpg",
+      src: "https://docs.google.com/document/d/1EqliAUuKfnZYzZcU6gSheRzvfmWt2aAjdm-iXkr9WFo/edit?usp=sharing"
+    },
+    {
+      title: "12889 126th St",
+      img: "../images/homes/126th/front.jpg",
+      src: "https://docs.google.com/document/d/18xqoHedrz4pTQu-PTloraaEKad_-5PkYXT7Ci3GgEWY/edit?usp=sharing"
+    }
+  ]
+
 })(document);
