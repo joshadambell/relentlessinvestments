@@ -74,16 +74,14 @@
 			</paper-toolbar>
 
 			<div class="content">
-				<div style="background: url('images/grey-front-bg.jpg'); height: 300px; display: flex;justify-content: center;align-items: center; margin-bottom: 50px;">
+				<div class="page-title-bg">
 					<h1 class="page-title">{{currentPageTitle}}</h1>
 				</div>
 				<iron-pages attr-for-selected="data-route" selected="{{route}}">
 					<section data-route="home" tabindex="-1">
 						<iron-list items="[[photos]]" as="photo" scroll-target="document" grid>
 							<template>
-								<a data-route="history" href="[[photo.src]]" class="flex link" tabindex="-1">
-									<photo-tile photo="[[photo]]"></photo-tile>
-								</a>
+								<photo-tile photo="[[photo]]"></photo-tile>
 							</template>
 						</iron-list>
 					</section>
@@ -111,96 +109,6 @@
 			</div>
 
 		</paper-scroll-header-panel>
-
-
-
-		<!--<paper-drawer-panel force-narrow id="mainDrawerPanel">
-			<paper-header-panel drawer>
-				<a data-route="home" href="{{baseUrl}}" style=" display: flex; justify-content: center; padding: 15px;">
-					<iron-image sizing="contain" src="../images/logo.png" style="height:50px; width:150px"></iron-image>
-				</a>
-				<paper-menu>
-					<a data-route="about" href="{{baseUrl}}about">
-						<paper-item>
-							About
-						</paper-item>
-					</a>
-					<a data-route="opportunities" href="{{baseUrl}}opportunities">
-						<paper-item>
-							Investment Opportunities
-						</paper-item>
-					</a>
-					<a data-route="history" href="{{baseUrl}}history">
-						<paper-item>
-							Past Projects
-						</paper-item>
-					</a>
-				</paper-menu>
-			</paper-header-panel>-->
-
-		<!--<paper-header-scroll-panel fixed id="headerPanelMain">
-				<paper-toolbar id="mainToolbar">
-					<paper-icon-button class="menu-button" icon="menu" paper-drawer-toggle raised hidden$="{{wideLayout}}"></paper-icon-button>
-					<iron-image sizing="contain" src="../images/logo.png" style="height:35px; width:150px" class="flex" hidden$="{{wideLayout}}"></iron-image>
-					<div class="top layout horizontal flex" hidden$="{{!wideLayout}}">
-						<a data-route="home" href="{{baseUrl}}">
-							<iron-image sizing="contain" src="../images/logo.png" style="height:50px; width:150px"></iron-image>
-						</a>
-						<paper-tabs id="paper-tabs" class="self-end flex" selected="{{selectedTab}}" no-bar>
-							<paper-tab link>
-								<a data-route="opportunities" href="{{baseUrl}}opportunities" class="link" tabindex="-1">Investment Opportunities</a>
-							</paper-tab>
-							<paper-tab link>
-								<a data-route="history" href="{{baseUrl}}history" class="link" tabindex="-1">Past Projects</a>
-							</paper-tab>
-							<paper-tab link>
-								<a data-route="about" href="{{baseUrl}}about" class="link" tabindex="-1">About</a>
-							</paper-tab>
-						</paper-tabs>
-					</div>
-					<paper-button raised class="subscribe-button" onclick="dialog.toggle()">Subscribe</paper-button>
-				</paper-toolbar>
-				<div class="content layout horizontal">
-					<iron-pages attr-for-selected="data-route" selected="{{route}}">
-						<section data-route="home" tabindex="-1">
-							<div style="margin:30px">
-								<iron-image sizing="contain" src="../images/logo.png" style="width: 100%; height: 200px;"></iron-image>
-							</div>
-							<h1 style="margin-left:20px" tabindex="-1">Current Projects</h1>
-							<iron-list items="[[photos]]" as="photo" scroll-target="document" grid>
-								<template>
-									<a data-route="history" href="{{baseUrl}}history" class="link" tabindex="-1">
-										<photo-tile photo="[[photo]]"></photo-tile>
-									</a>
-								</template>
-							</iron-list>
-						</section>
-						<section data-route="about" tabindex="-1">
-							<div>
-								<h1 class="page-title" tabindex="-1">About</h1>
-								<div class="flex">
-									Relentless Investments buys, rehabs, and sells homes in need of a face lift and turns them into a buyer's dream home. We
-									provide investment opportunities for those looking to outdo their returns in the stock market.
-								</div>
-							</div>
-							<div style="display:flex; justify-content:center" hidden$="{{wideLayout}}">
-								<iron-image sizing="contain" src="../images/business_card.png" style="height:300px; width:300px"></iron-image>
-							</div>
-							<div style="display:flex; justify-content:center" hidden$="{{!wideLayout}}">
-								<iron-image sizing="contain" src="../images/business_card.png" style="height:600px; width:600px"></iron-image>
-							</div>
-						</section>
-						<section data-route="opportunities" tabindex="-1">
-							<h1 class="page-title" tabindex="-1">Investment Opportunities</h1>
-						</section>
-						<section data-route="history" tabindex="-1">
-							<h1 class="page-title" tabindex="-1">Past Projects</h1>
-						</section>
-					</iron-pages>
-				</div>
-			</paper-header-scroll-panel>
-		<!--</paper-drawer-panel>-->
-		<!--<iron-media-query query="min-width: 600px" query-matches="{{wideLayout}}"></iron-media-query>-->
 
 		<sign-up-dialog id="dialog" always-on-top="true" with-backdrop="true">
 			<sign-up></sign-up>

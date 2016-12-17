@@ -68,14 +68,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   paper-toolbar {
     background: transparent;
   }
-/*  
-  paper-toolbar .title {
-    margin: 0 8px;
-  }*/
-
-  .content {
-    padding-bottom: 50px;
-  }
   
   paper-scroll-header-panel .content {
     padding-bottom: 50px;
@@ -88,52 +80,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   .spacer {
     @apply(--layout-flex);
   }
-  
-  /*[hidden] {
-    display: none !important;
-  }
-  
-  .space {
-    @apply(--layout-flex);
-  }
-  
-  .self-end {*/
-    /* This mixin (from iron-flex-layout) aligns the tabs to the
-       bottom of the toolbar. */
-  /*@apply(--layout-self-end);
-  }*/
-  /*paper-header-panel {
-    height: 100%;
-  }*/
-  /*paper-toolbar {
-    box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.4);
-  }*/
-  /*  
-  #mainToolbar.tall .app-name {
-    /*background: url("../images/logo.png");*/
-  /* Required for main area's paper-scroll-header-panel custom condensing transformation */
-  /*-webkit-transform-origin: left center;*/
-  /*transform-origin: left center;*/
-  /*}*/
-  /*#mainToolbar .middle-container,
-  #mainToolbar .bottom-container {
-    @apply(--layout-horizontal);
-    @apply(--layout-center);
-  }*/
-  /* Height of the scroll area */
-  /*  
-  .content {
-    height: 900px;
-  }
-  
-  section[data-route="home"] paper-material {
-    @apply(--paper-font-body2);
-  }
-  
-  section[data-route="home"] paper-material .subhead {
-    @apply(--paper-font-subhead);
-  }
-  */
 
   .page-title {
     font-size: 54px;
@@ -177,44 +123,33 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   .mainLogo {
     height: 50px;
   }
-  /*section[tabindex="-1"]:focus {
-    outline: none;
-  }*/
-  /* Breakpoints */
-  /* Small */
-  /*@media (max-width: 600px) {
-    #drawer .paper-toolbar {
-      margin-left: 16px;
-    }
-    #mainToolbar.tall .app-name {
-      font-size: 24px;
-      font-weight: 400;
-    }
-    paper-material {
-      --menu-container-display: none;
-      width: calc(97.33% - 32px);
-      padding-left: 16px;
-      padding-right: 16px;
-    }
-    iron-pages {
-      padding: 0px 20px;
-    }
-  }*/
-  /* Tablet+ */
-  /*@media (min-width: 601px) {
-    #drawer.paper-drawer-panel > [drawer] {
-      border-right: 1px solid rgba(0, 0, 0, 0.14);
-    }
-    iron-pages {
-      /*padding: 0px 62px;*/
-  /*width: 100%;
-    }*/
-  
+
   paper-material {
     width: calc(98% - 46px);
     margin-bottom: 32px;
     padding-left: 30px;
     padding-right: 30px;
+  }
+
+  .page-title-bg {
+    background: url('../images/grey-front-bg.jpg');
+    height: 300px; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-bottom: 50px;
+  }
+
+   
+  @media (max-width: 800px) {
+      .page-title {
+         font-size: xx-large;
+      }
+
+      .page-title-bg { 
+          margin-bottom: 10px;
+          height: 200px;
+      }
   }
   /* mobile-small */
   /*@media all and (min-width: 0) and (max-width: 360px) and (orientation: portrait) {}*/

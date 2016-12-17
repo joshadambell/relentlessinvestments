@@ -9,13 +9,16 @@
             :host {
                 display: block;
                 cursor: pointer;
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
             }
             
             .photoContent {
                 @apply(--layout);
                 background-color: #ddd;
                 position: relative;
-                width: 1000px;
+                width: 75%;
                 height: 500px;
                 margin: 20px;
             }
@@ -43,11 +46,9 @@
             }
             
             @media (max-width: 800px) {
-                .photoContainer {
-                    width: calc(50% - 16px);
-                }
                 .photoContent {
-                    width: auto;
+                    width: 85%;
+                    height: 200px;
                 }
             }
             
@@ -64,22 +65,30 @@
             }
         </style>
 
-        <div class="photoContent" tabindex$="[[tabIndex]]">
-            <iron-image sizing="cover" src="[[photo.img]]"></iron-image>
-            <div class="detail">[[photo.title]]</div>
-        </div>
+<div class="photoContent" tabindex$="[[tabIndex]]">
+    <iron-image sizing="cover" src="[[photo.img]]"></iron-image>
+    <div class="detail">[[photo.title]]</div>
+</div>
 
-    </template>
-    <script>
-        Polymer({
-            is: 'photo-tile',
+</template>
+<script>
+    Polymer({
+        is: 'photo-tile',
 
-            properties: {
-                photo: {
-                    type: Object,
-                    Value: null
-                }
+        properties: {
+            photo: {
+                type: Object,
+                Value: null
             }
-        });
-    </script>
+        },
+
+        listeners: {
+            'tap': 'regularTap',
+        },
+
+        regularTap: function (e) {
+            window.open(this.photo.src);
+        }
+    });
+</script>
 </dom-module>
